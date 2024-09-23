@@ -1,8 +1,8 @@
-import { areaOfRectangle } from "./area-of-rectangle";
-import { circumferenceOfCircle, areaOfCircle } from "./circumference-area-of-circle";
-import { anglesOfTriangle } from "./angles-of-triangle";
-import { differenceBetweenDatesInDays } from "./difference-between-dates-in-days";
-import { nameInitialInUppercase } from "./name-initial-in-uppercase";
+import { areaOfRectangle, Rectangle } from "./area-of-rectangle";
+import { circumferenceOfCircle, areaOfCircle, Circle } from "./circumference-area-of-circle";
+import { anglesOfTriangle, TriangleAngles } from "./angles-of-triangle";
+import { differenceBetweenDatesInDays, DateDifference } from "./difference-between-dates-in-days";
+import { nameInitialInUppercase, Name } from "./name-initial-in-uppercase";
 
 const getUserInput = (question: string): Promise<string> => {
   return new Promise((resolve) => {
@@ -31,14 +31,14 @@ export const runExercise1 = async () => {
 				case 1:
 					const length = parseFloat(await getUserInput("Enter the length:")) || 0;
 					const width = parseFloat(await getUserInput("Enter the width:")) || 0;
-					const areaRectangle = areaOfRectangle(length, width);
+					const areaRectangle = areaOfRectangle({ length, width } as Rectangle);
 					console.log(`The area of the rectangle is: ${areaRectangle}`);
 					console.log('----------------------------------');
 					break;
 				case 2:
 					const radius = parseFloat(await getUserInput("Enter the radius:")) || 0;
-					const circumference = circumferenceOfCircle(radius);
-					const areaCircle = areaOfCircle(radius);
+					const circumference = circumferenceOfCircle({ radius } as Circle);
+					const areaCircle = areaOfCircle({ radius } as Circle);
 					console.log(`The circumference of the circle is: ${circumference}`);
 					console.log(`The area of the circle is: ${areaCircle}`);
 					console.log('----------------------------------');
@@ -46,7 +46,7 @@ export const runExercise1 = async () => {
 				case 3:
 					const a = parseFloat(await getUserInput("Enter the first angle:")) || 0;
 					const b = parseFloat(await getUserInput("Enter the second angle:")) || 0;
-					const angle = anglesOfTriangle(a, b);
+					const angle = anglesOfTriangle({ angle1: a, angle2: b } as TriangleAngles);
 					console.log(`The third angle of the triangle is: ${angle}`);
 					console.log('----------------------------------');
 					break;
@@ -59,13 +59,13 @@ export const runExercise1 = async () => {
 						console.log("Invalid date. Please enter dates in the format YYYY-MM-DD.");
 						return;
 					}
-					const difference = differenceBetweenDatesInDays(date1, date2);
+					const difference = differenceBetweenDatesInDays({ date1, date2 } as DateDifference);
 					console.log(`The difference between the two dates is: ${difference} days`);
 					console.log('----------------------------------');
 					break;
 				case 5:
 					const name = await getUserInput("Enter the name:") || "";
-					const initial = nameInitialInUppercase(name);
+					const initial = nameInitialInUppercase({ name } as Name);
 					console.log(`The initial of the name is: ${initial}`);
 					console.log('----------------------------------');
 					break;
