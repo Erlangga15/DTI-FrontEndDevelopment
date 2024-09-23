@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Build output
+dist/
+build/
+out/
+
+# TypeScript build info
+tsconfig.tsbuildinfo
+
+# IDE configuration
+.vscode/
+*.code-workspace
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Cache files
+.cache/
+
+# Coverage files
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
+
+# JavaScript files generated from TypeScript
+*.js
+*.js.map
+
+# Exclusion for JavaScript configuration files
+!*.config.js
+
+# TypeScript declaration files
+*.d.ts
+
+# Editor backup files
+*~
+*.swp
+*.swo
+
+# Debug files
+.node_repl_history
